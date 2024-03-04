@@ -1,23 +1,30 @@
-import { useEffect ,useState } from 'react';
+import { useState } from 'react';
 import './App.css';
-import {fetchData} from '../app.service.ts'
+import client from '../app.service';
+import { FaQuoteLeft, FaQuoteRight, FaSave } from 'react-icons/fa';
+
+interface Quotes {
+  content: string;
+  author: string;
+}
+const quotes = await client.fetchQuotesData();
+
+const randomQuote = (): Quotes => {
+  return quotes[Math.floor(Math.random() * quotes.length)]
+}
+
 function App() {
 
-   const [data, setData] = useState('');
-
-  const fetchQuotes = async () => {
-    const result = await fetchData();
-    setData(JSON.stringify(result));
-  }
-
-  useEffect(()=> {
-    fetchQuotes()
-  }, []);
+const [quote, setQuote] = useState<Quotes>(randomQuote());
 
   return (
-    <>
-      <h1>{data}</h1>
-    </>
+    <div id="quote-card">
+      <div className="content">
+        <h2 id="text"><FaQuoteLeft size ='25' style={{ marginRight: "10px" }}></FaQuoteLeft>
+        {quote.content} <FaQuoteRight size ='25' style={{ marginLeft: "10px" }}></FaQuoteRight></h2>
+        <h4 id="author">- {quote.author}</h4>
+      </div>
+    </div>
   )
 }
 
