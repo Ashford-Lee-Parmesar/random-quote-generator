@@ -18,11 +18,13 @@ function App() {
 const [quote, setQuote] = useState<Quotes>(randomQuote());
 
   return (
-    <div id="quote-card">
-      <div className="content">
-        <h2 id="text"><FaQuoteLeft size ='25' style={{ marginRight: "10px" }}></FaQuoteLeft>
-        {quote.content} <FaQuoteRight size ='25' style={{ marginLeft: "10px" }}></FaQuoteRight></h2>
-        <h4 id="author">- {quote.author}</h4>
+    <div className="background">
+      <div id="quote-card">
+        <div className="content">
+          <h2 id="text"><FaQuoteLeft size ='25' style={{ marginRight: "10px" }}></FaQuoteLeft>
+          {quote.content} <FaQuoteRight size ='25' style={{ marginLeft: "10px" }}></FaQuoteRight></h2>
+          <h4 id="author">- {quote.author}</h4>
+        </div>
       </div>
     </div>
   )
