@@ -3,7 +3,29 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 89vh;
+}
+
+#nav-bar {
+    display: flex;
+    align-items: center;
+    padding: 2rem;
+    background-color: rgba(0, 0, 0, 0.437);
+    height: 5vh;
+    justify-content: space-between;
+    gap: 5vw;
+}
+
+.item1 {
+    margin-right: auto;
+}
+
+button, a {
+    font-weight: 300;
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+    font-size: x-large;
 }
 
 #quote-card {
